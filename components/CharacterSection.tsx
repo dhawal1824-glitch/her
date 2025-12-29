@@ -59,4 +59,57 @@ export const CharacterSection: React.FC<SectionProps> = ({ id }) => {
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 text-sm md:text-base mb-1">{item.title}</h3>
-                    <p className="text-slate
+                    <p className="text-slate-600 text-xs md:text-sm leading-relaxed">{item.text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative group order-1 lg:order-2 max-w-md mx-auto lg:max-w-none">
+            {/* Decorative background blobs */}
+            <div className="absolute -top-6 -left-6 md:-top-10 md:-left-10 w-24 h-24 md:w-40 md:h-40 bg-rose-200 rounded-full blur-2xl md:blur-3xl opacity-30 animate-pulse" />
+            <div className="absolute -bottom-6 -right-6 md:-bottom-10 md:-right-10 w-24 h-24 md:w-40 md:h-40 bg-blue-200 rounded-full blur-2xl md:blur-3xl opacity-30 animate-pulse" style={{ animationDelay: '1s' }} />
+            
+            <div className="relative">
+              {/* Photo Frame */}
+              <div className="bg-white p-3 pb-16 md:p-4 md:pb-20 rounded-lg shadow-xl border border-slate-200 transform md:rotate-1 group-hover:rotate-0 transition-transform duration-700 ease-out">
+                <div className="relative aspect-[3/4] rounded-sm overflow-hidden bg-slate-100 shadow-inner">
+                  <img 
+                    src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                    alt="The girl with the world in her eyes"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                </div>
+                
+                <div className="mt-6 md:mt-10 text-center relative">
+                   <p className="font-handwriting text-3xl md:text-4xl text-slate-800">My Jaan</p>
+                   <p className="text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] text-slate-400 mt-2 md:mt-3 font-black">Future Data Analyst • 2025</p>
+                </div>
+              </div>
+
+              {/* Peace Sign Badge */}
+              <div className="absolute top-2 -left-2 md:top-4 md:-left-6 bg-white text-slate-900 px-3 py-1.5 md:px-4 md:py-2 rounded-full shadow-lg border border-slate-100 transform -rotate-12 font-bold text-[10px] md:text-xs flex items-center gap-2">
+                ✌️ Peace & Progress
+              </div>
+
+              {/* Study Abroad Badge */}
+              <div className="absolute -bottom-4 -left-4 md:-bottom-8 md:-left-8 bg-slate-900 text-white p-4 md:p-6 rounded-2xl shadow-2xl transform -rotate-3 md:-rotate-6 group-hover:-rotate-3 transition-transform border border-white/10">
+                <div className="flex items-center gap-2 md:gap-3">
+                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-rose-500/20 flex items-center justify-center">
+                    <GraduationCap className="text-rose-400 w-4 h-4 md:w-5 md:h-5" />
+                  </div>
+                  <div>
+                    <p className="text-[8px] md:text-[10px] uppercase tracking-tighter text-slate-400 font-bold">Next Stop:</p>
+                    <p className="font-serif italic text-sm md:text-base">Study Abroad</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};

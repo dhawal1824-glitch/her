@@ -4,28 +4,27 @@ import { SectionProps } from '../types';
 import { ChevronDown, BarChart3, Globe, Sparkles } from 'lucide-react';
 
 export const Hero: React.FC<SectionProps> = ({ id }) => {
-  const [offset, setOffset] = useState(0);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setOffset(window.pageYOffset);
+      setScrollY(window.scrollY);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <section id={id} className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Parallax Effect */}
-      <div 
-        className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-75"
-        style={{ 
-          backgroundImage: "url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=2044&auto=format&fit=crop')",
-          transform: `translateY(${offset * 0.4}px)`
-        }}
-      >
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center transition-transform duration-75 will-change-transform"
+          style={{ 
+            backgroundImage: "url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=2044&auto=format&fit=crop')",
+            transform: `translateY(${scrollY * 0.4}px) scale(1.1)`
+          }}
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-900/40 to-slate-950/90" />
       </div>
 
